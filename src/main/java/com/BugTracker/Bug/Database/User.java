@@ -1,4 +1,4 @@
-package com.BugTracker.Bug;
+package com.BugTracker.Bug.Database;
 
 public class User {
     private int id;

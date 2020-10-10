@@ -2,11 +2,15 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
     <meta charset="utf-8">
     <title>Bug Tracker</title>
 </head>
 <body>
-<form action="/login" style="width: 500px; margin: auto;">
+
+<h1 class="text-center" style="padding: 20px; color: #607D8B;">My Bug Tracking Web App</h1>
+
+<form action="/login" style="width: 500px; margin: auto; color: #607D8B;">
     <div class="form-group">
         <label for="exampleInputEmal1">Email address</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmal1" aria-describedby="emailHelp">
@@ -19,5 +23,32 @@
     <a href="register" class="btn btn-outline-success">Register</a>
     <p th:text="${message}"></p>
 </form>
+
+<footer style="width: 500px; margin: auto;">
+    <p style="color: #607D8B;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bug" width="44" height="44"
+             viewBox="0 0 24 24" stroke-width="1.5" stroke="#607D8B" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M9 9v-1a3 3 0 0 1 6 0v1" />
+            <path d="M8 9h8a6 6 0 0 1 1 3v3a5 5 0 0 1 -10 0v-3a6 6 0 0 1 1 -3" />
+            <line x1="3" y1="13" x2="7" y2="13" />
+            <line x1="17" y1="13" x2="21" y2="13" />
+            <line x1="12" y1="20" x2="12" y2="14" />
+            <line x1="4" y1="19" x2="7.35" y2="17" />
+            <line x1="20" y1="19" x2="16.65" y2="17" />
+            <line x1="4" y1="7" x2="7.75" y2="9.4" />
+            <line x1="20" y1="7" x2="16.25" y2="9.4" />
+        </svg>
+        Bug App
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="44" height="44"
+             viewBox="0 0 24 24" stroke-width="1.5" stroke="#607D8B" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <circle cx="12" cy="12" r="9" />
+            <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+        </svg>
+        Catalin Emerich 2020
+    </p>
+</footer>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
-package com.BugTracker.Bug;
+package com.BugTracker.Bug.Database;
 
+import com.BugTracker.Bug.Database.User;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
