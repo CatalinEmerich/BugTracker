@@ -8,13 +8,68 @@
     <title>Dashboard</title>
 </head>
 <body>
-    <h1 class="text-center" style="padding: 20px; color: #607D8B;">Dashboard</h1>
 
-    <div class="list-group text-center" style="width: 500px; margin: auto; color: #607D8B;">
-        <a href="#" class="list-group-item list-group-item-action">My Bugs</a>
-        <a href="#" class="list-group-item list-group-item-action">My Projects</a>
-        <a href="#" class="list-group-item list-group-item-action">Add bug</a>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">Welcome to the app</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        What are you looking for?
+                    </a>
+                    <!-- Must add the .animate and .slide-in classes to .dropdown-menu to work -->
+                    <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">My projects</a>
+                        <a class="dropdown-item" href="#">My bugs</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Add new bug</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
+</nav>
 
+
+<div th:each="x : ${bugs}" class="card" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+    <div class="card-body">
+        <h5 class="card-title">th:text="{x.name}"</h5>
+        <h6 class="card-subtitle mb-2 text-muted">th:text="{x.number}"</h6>
+        <p class="card-text">th:text="{x.description}"</p>
+        <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
+        <a href="#" class="card-link">Go to bug</a>
+        <a href="#" class="card-link">Go to project</a>
+    </div>
+</div>
+
+
+
+<footer class="footer mt-auto py-3" style="position: fixed; bottom: 0; text-align: justify; width: 100%;">
+    <div class="container">
+        <p class="text-center">© 2020 pandemic software sollutions</p>
+    </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
 </body>
 </html>
