@@ -8,10 +8,10 @@ public class BugRowMapper implements RowMapper<Bug> {
     @Override
     public Bug mapRow (ResultSet resultSet, int i) throws SQLException {
         Bug bug = new Bug();
-        bug.setId(resultSet.getInt( "id"));
-        bug.setName(resultSet.getString("name"));
-        bug.setNumber(resultSet.getInt("number"));
-        bug.setDescription(resultSet.getString("description"));
+        bug.setId(resultSet.getInt( "idBugs"));
+        bug.setName(resultSet.getString("BugName"));
+        bug.setNumber(resultSet.getInt("BugNumber"));
+        bug.setDescription(resultSet.getString("BugDescription"));
         return bug;
     }
 }

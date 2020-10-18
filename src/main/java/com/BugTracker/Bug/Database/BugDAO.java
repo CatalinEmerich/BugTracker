@@ -11,8 +11,12 @@ public class BugDAO {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    //expunem metoda Java 'findAll' prin care interogam baza de date pentru Bug-uri inregistrate
+    //folosim metoda Java 'findAll' prin care interogam baza de date pentru Bug-uri inregistrate
     public List<Bug> findAll() {
         return jdbcTemplate.query("select * from Bugs", new BugRowMapper());
+    }
+
+    public Bug findById (Integer id) {
+        return jdbcTemplate.query("select * from Bugs where idBugs = " + id, new BugRowMapper()).get(0);
     }
 }

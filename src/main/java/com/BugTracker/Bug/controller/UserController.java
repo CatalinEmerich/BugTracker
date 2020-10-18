@@ -29,8 +29,6 @@ public class UserController {
     @Autowired
     UserSession userSession;
 
-
-
     @PostMapping("/register-form")
     public ModelAndView register(@RequestParam("email") String email,
                                  @RequestParam("password") String password,
@@ -51,7 +49,7 @@ public class UserController {
         return new ModelAndView("redirect:/index.html");
     }
 
-    @PostMapping("/register")
+    @GetMapping("/register")
     public ModelAndView register() {
         return new ModelAndView("register");
     }
@@ -60,7 +58,7 @@ public class UserController {
     public ModelAndView login(@RequestParam("email") String email,
                               @RequestParam("password") String password,
                               HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("login");
+        ModelAndView modelAndView = new ModelAndView("index");
         List<User> userList = userService.findByEmail(email);
         if (userList.size() == 0) ;
         {
@@ -81,17 +79,15 @@ public class UserController {
         return modelAndView;
     }
 
-    //sa securizam un link ce trebuie protejat prin login (Post, nu Get!)
-    @GetMapping("dashboard")
+    //sa securizam un link ce trebuie protejat prin login (cu Post, nu Get!)
+    @GetMapping("/dashboard")
     public ModelAndView dashboard() {
-        //verificare login deja existent
-        if (userSession.getUserId() == 0) {
-            return new ModelAndView("redirect:/index.html");
-        }
         List<Bug> bugs = bugDAO.findAll();
+        for (Bug b : bugs) {
+            b.setUrl("Bugs?id=" + b.getId());
+        }
         ModelAndView modelAndView = new ModelAndView("dashboard");
         modelAndView.addObject("bugs", bugs);
-
         return modelAndView;
     }
 }

@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
-<html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
     <meta charset="utf-8">
-    <title>Dashboard</title>
+    <title>My Bugs</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="#">Dashboard</a>
+        <a class="navbar-brand" href="#">My Bugs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,7 +26,7 @@
                     <!-- Must add the .animate and .slide-in classes to .dropdown-menu to work -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="myprojects.html">My projects</a>
-                        <a class="dropdown-item" href="mybugs.html">My bugs</a>
+                        <a class="dropdown-item active" href="#">My bugs</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Add new bug</a>
                         <div class="dropdown-divider"></div>
@@ -40,20 +39,24 @@
 </nav>
 
 
-<div th:each="b : ${bugs}" class="card" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+
+<div class="container">
+    <form action="/mybugs" method="post">
+    <div class="row">
+<div th:each="x : ${id}" class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
     <div class="card-body">
-        <h5 class="card-title" th:text="{b.BugName}"></h5>
-        <h6 class="card-subtitle mb-2 text-muted" th:text="{b.BugNumber}"></h6>
-        <p class="card-text" th:text="{b.BugDescription}"></p>
-        <!--    Varianta cu form e mai utila pentru metoda POST-->
-        <!--    <form action="bug" method="get">
-                    <input hidden name="id" th: value="${idBugs}">
-                    <button class="card-link">Go to bug</button>
-                </form>-->
-        <!--    De adaugat inca un FORM pentru un buton de 'Go to project' sau un a???-->
-        <a th:href="${b.url}">Go to bug</a>
+        <h5 class="card-title" th:text="{bug.BugName}"></h5>
+        <h6 class="card-subtitle mb-2 text-muted" th:text="{bug.BugNumber}"></h6>
+        <p class="card-text" th:text="{bug.BugDescription}"></p>
+        <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
+        <a href="#" class="card-link">Go to bug</a>
+        <a href="#" class="card-link">Go to project</a>
     </div>
 </div>
+</div>
+    </form>
+</div>
+
 
 
 <footer class="footer mt-auto py-3" style="position: fixed; bottom: 0; text-align: justify; width: 100%;">
