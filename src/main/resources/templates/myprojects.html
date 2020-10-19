@@ -31,6 +31,7 @@
                         <a class="dropdown-item" href="mybugs.html">My bugs</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Add new bug</a>
+                        <a class="dropdown-item" href="#">Add new project</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
@@ -50,9 +51,9 @@
                     <h5 class="card-title" th:text="{project.ProjectName}"></h5>
                     <h6 class="card-subtitle mb-2 text-muted" th:text="{project.ProjectNumber}"></h6>
                     <p class="card-text" th:text="{project.ProjectDescription}"></p>
-                    <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
+                    <!-- Cum dau link-uri catre pagina ADD BUG si pagina Proiectului??? -->
                     <a href="#" class="card-link">Add bug</a>
-                    <a href="#" class="card-link">Another action</a>
+                    <a href="#" class="card-link">Project overview</a>
                 </div>
             </div>
 
@@ -64,7 +65,7 @@
                     <p class="card-text" th:text="{project.ProjectDescription}"></p>
                     <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
                     <a href="#" class="card-link">Add bug</a>
-                    <a href="#" class="card-link">Another action</a>
+                    <a href="#" class="card-link">Project overview</a>
                 </div>
             </div>
 
@@ -76,7 +77,7 @@
                     <p class="card-text" th:text="{project.ProjectDescription}"></p>
                     <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
                     <a href="#" class="card-link">Add bug</a>
-                    <a href="#" class="card-link">Another action</a>
+                    <a href="#" class="card-link">Project overview</a>
                 </div>
             </div>
 
@@ -88,7 +89,11 @@
 
 <footer class="footer mt-auto py-3" style="position: fixed; bottom: 0; text-align: justify; width: 100%;">
     <div class="container">
-        <p class="text-center">© 2020 pandemic software :-)</p>
+        <p class="text-center">
+            <button type="button" class="btn btn-lg btn-outline-secondary" disabled> © 2020 Pandemic Software :-)
+            </button>
+            <button type="button" class="btn btn-lg btn-outline-success float-right">Home</button>
+        </p>
     </div>
 </footer>
 
