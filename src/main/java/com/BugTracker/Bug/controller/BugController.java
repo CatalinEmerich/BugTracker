@@ -2,7 +2,6 @@ package com.BugTracker.Bug.controller;
 
 import com.BugTracker.Bug.Database.Bug;
 import com.BugTracker.Bug.Database.BugDAO;
-import com.BugTracker.Bug.Database.UserDAO;
 import com.BugTracker.Bug.security.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +18,6 @@ public class BugController {
     @Autowired
     UserSession userSession;
 
-    @Autowired
-    UserDAO userDAO;
-
     @PostMapping("/mybugs")
 
     //trebuie 'id' generic sau ex: idBugs cum e campul din baza de date definit???
@@ -31,5 +27,11 @@ public class BugController {
         Bug bug = bugDAO.findById(id);
         modelAndView.addObject("bug", bug);
         return modelAndView;
+    }
+
+    @PostMapping("/addbug")
+    public ModelAndView addBug(@RequestParam("idBugs") Integer id) {
+        userSession.addNewBug(id);
+        return new ModelAndView("redirect:mybugs.html");
     }
 }
