@@ -28,7 +28,7 @@
                         <a class="dropdown-item" href="myprojects.html">My projects</a>
                         <a class="dropdown-item active" href="#">My bugs</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Add new bug</a>
+                        <a class="dropdown-item" href="/src/main/resources/static/addbug.html">Add new bug</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
@@ -43,7 +43,7 @@
 <div class="container">
     <form action="/mybugs" method="post">
     <div class="row">
-<div th:each="x : ${id}" class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+    <div th:each="x : ${id}" class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
     <div class="card-body">
         <h5 class="card-title" th:text="{bug.BugName}"></h5>
         <h6 class="card-subtitle mb-2 text-muted" th:text="{bug.BugNumber}"></h6>
@@ -52,16 +52,42 @@
         <a href="#" class="card-link">Go to bug</a>
         <a href="#" class="card-link">Go to project</a>
     </div>
-</div>
-</div>
+    </div>
+
+        <div th:each="x : ${id}" class="card col-sm"
+            style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+            <div class="card-body">
+                <h5 class="card-title" th:text="{bug.BugName}"></h5>
+                <h6 class="card-subtitle mb-2 text-muted" th:text="{bug.BugNumber}"></h6>
+                <p class="card-text" th:text="{bug.BugDescription}"></p>
+                <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
+                <a href="#" class="card-link">Go to bug</a>
+                <a href="#" class="card-link">Go to project</a>
+            </div>
+        </div>
+
+            <div th:each="x : ${id}" class="card col-sm"
+                style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="{bug.BugName}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="{bug.BugNumber}"></h6>
+                    <p class="card-text" th:text="{bug.BugDescription}"></p>
+                    <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
+                    <a href="#" class="card-link">Go to bug</a>
+                    <a href="#" class="card-link">Go to project</a>
+                </div>
+            </div>
+
+    </div>
     </form>
 </div>
 
 
 
+
 <footer class="footer mt-auto py-3" style="position: fixed; bottom: 0; text-align: justify; width: 100%;">
     <div class="container">
-        <p class="text-center">© 2020 pandemic software sollutions</p>
+        <p class="text-center">© 2020 pandemic software :-)</p>
     </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

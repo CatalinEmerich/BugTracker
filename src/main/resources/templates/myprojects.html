@@ -41,22 +41,54 @@
 </nav>
 
 
-<!--<div th:each="x : ${idBugs}" class="card" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">-->
-<!--    <div class="card-body">-->
-<!--        <h5 class="card-title" th:text="{x.BugName}"></h5>-->
-<!--        <h6 class="card-subtitle mb-2 text-muted" th:text="{x.BugNumber}"></h6>-->
-<!--        <p class="card-text" th:text="{x.BugDescription}"></p>-->
-<!--        &lt;!&ndash; Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? &ndash;&gt;-->
-<!--        <a href="#" class="card-link">Go to bug</a>-->
-<!--        <a href="#" class="card-link">Go to project</a>-->
-<!--    </div>-->
-<!--</div>-->
+<div class="container">
+    <form action="/myprojects" method="post">
+        <div class="row">
+            <div th:each="project : ${id}" class="card col-sm"
+                style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="{project.ProjectName}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="{project.ProjectNumber}"></h6>
+                    <p class="card-text" th:text="{project.ProjectDescription}"></p>
+                    <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
+                    <a href="#" class="card-link">Add bug</a>
+                    <a href="#" class="card-link">Another action</a>
+                </div>
+            </div>
+
+            <div th:each="project : ${id}" class="card col-sm"
+                style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="{project.ProjectName}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="{project.ProjectNumber}"></h6>
+                    <p class="card-text" th:text="{project.ProjectDescription}"></p>
+                    <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
+                    <a href="#" class="card-link">Add bug</a>
+                    <a href="#" class="card-link">Another action</a>
+                </div>
+            </div>
+
+            <div th:each="project : ${id}" class="card col-sm"
+                style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="{project.ProjectName}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted" th:text="{project.ProjectNumber}"></h6>
+                    <p class="card-text" th:text="{project.ProjectDescription}"></p>
+                    <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
+                    <a href="#" class="card-link">Add bug</a>
+                    <a href="#" class="card-link">Another action</a>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
 
 
 
 <footer class="footer mt-auto py-3" style="position: fixed; bottom: 0; text-align: justify; width: 100%;">
     <div class="container">
-        <p class="text-center">© 2020 pandemic software sollutions</p>
+        <p class="text-center">© 2020 pandemic software :-)</p>
     </div>
 </footer>
 
