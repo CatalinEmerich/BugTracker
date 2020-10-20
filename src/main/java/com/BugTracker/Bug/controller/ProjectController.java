@@ -17,7 +17,7 @@ public class ProjectController {
     @Autowired
     UserSession userSession;
 
-    @GetMapping("/myprojects")
+    @GetMapping("myprojects")
     public ModelAndView project(@RequestParam("id") Integer id) {
         ModelAndView modelAndView = new ModelAndView("myprojects");
 
@@ -29,6 +29,6 @@ public class ProjectController {
     @PostMapping("/addproject")
     public ModelAndView addProject(@RequestParam("idProject") Integer id) {
         userSession.addNewProject(id);
-        return new ModelAndView("redirect:myprojects.html");
+        return new ModelAndView("redirect:/myprojects.html");
     }
 }

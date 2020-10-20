@@ -42,17 +42,11 @@
 </nav>
 
 
-<div th:each="b : ${Bug}" class="card" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+<div th:each="b : ${bugs}" class="card" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
     <div class="card-body">
-        <h5 class="card-title" th:text="{b.BugName}"></h5>
-        <h6 class="card-subtitle mb-2 text-muted" th:number="{b.BugNumber}"></h6>
-        <p class="card-text" th:text="{b.BugDescription}"></p>
-        <!--    Varianta cu form e mai utila pentru metoda POST-->
-        <!--    <form action="bug" method="get">
-                    <input hidden name="id" th: value="${idBugs}">
-                    <button class="card-link">Go to bug</button>
-                </form>-->
-        <!--    De adaugat inca un FORM pentru un buton de 'Go to project' sau un a???-->
+        <h5 class="card-title" th:text="{b.bugName}"></h5>
+        <h6 class="card-subtitle mb-2 text-muted" th:number="{b.bugNumber}"></h6>
+        <p class="card-text" th:text="{b.bugDescription}"></p>
         <a th:href="${b.url}">Go to bug</a>
     </div>
 </div>

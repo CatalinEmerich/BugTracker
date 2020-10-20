@@ -2,42 +2,42 @@ package com.BugTracker.Bug.Database;
 
 public class Bug {
 
-    private int idBugs;
-    private String BugName;
-    private int BugNumber;
-    private String BugDescription;
+    private int idBug;
+    private String bugName;
+    private int bugNumber;
+    private String bugDescription;
     private String url;
 
-    public int getId() {
-        return idBugs;
+    public int getIdBugs() {
+        return idBug;
     }
 
-    public void setId(int id) {
-        this.idBugs = id;
+    public void setIdBugs(int idBug) {
+        this.idBug = idBug;
     }
 
-    public String getName() {
-        return BugName;
+    public String getBugName() {
+        return bugName;
     }
 
-    public void setName(String name) {
-        this.BugName = name;
+    public void setBugName(String bugName) {
+        this.bugName = bugName;
     }
 
-    public int getNumber() {
-        return BugNumber;
+    public int getBugNumber() {
+        return bugNumber;
     }
 
-    public void setNumber(int number) {
-        this.BugNumber = number;
+    public void setBugNumber(int bugNumber) {
+        this.bugNumber = bugNumber;
     }
 
-    public String getDescription() {
-        return BugDescription;
+    public String getBugDescription() {
+        return bugDescription;
     }
 
-    public void setDescription(String description) {
-        this.BugDescription = description;
+    public void setBugDescription(String bugDescription) {
+        this.bugDescription = bugDescription;
     }
 
     public String getUrl() {

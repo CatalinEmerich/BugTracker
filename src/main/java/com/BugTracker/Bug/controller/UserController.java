@@ -58,7 +58,7 @@ public class UserController {
     public ModelAndView login(@RequestParam("email") String email,
                               @RequestParam("password") String password,
                               HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView("index");
+        ModelAndView modelAndView = new ModelAndView("login");
         List<User> userList = userService.findByEmail(email);
         if (userList.size() == 0) ;
         {
@@ -82,12 +82,13 @@ public class UserController {
     //sa securizam un link ce trebuie protejat prin login (cu Post, nu Get!)
     @GetMapping("/dashboard")
     public ModelAndView dashboard() {
-        List<Bug> bugs = bugDAO.findAll();
-        for (Bug b : bugs) {
-            b.setUrl("Bugs?id=" + b.getId());
+        List<Bug> bug = bugDAO.findAll();
+        for (Bug b : bug) {
+            b.setUrl("Bugs?id=" + b.getIdBugs());
         }
         ModelAndView modelAndView = new ModelAndView("dashboard");
-        modelAndView.addObject("bugs", bugs);
+        modelAndView.addObject("bug", bug);
         return modelAndView;
     }
+
 }
