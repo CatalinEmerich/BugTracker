@@ -2,10 +2,9 @@ package com.BugTracker.Bug.controller;
 
 import com.BugTracker.Bug.Database.Bug;
 import com.BugTracker.Bug.Database.BugDAO;
-import com.BugTracker.Bug.security.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,23 +14,25 @@ public class BugController {
     @Autowired
     BugDAO bugDAO;
 
-    @Autowired
-    UserSession userSession;
+    @GetMapping("/bugdetails")
+    public ModelAndView bugDetails(@RequestParam("id") Integer id) {
+        ModelAndView modelAndView = new ModelAndView("bugdetails");
 
-    @PostMapping("/mybugs")
+        Bug bugDetails = bugDAO.findById(id);
+        modelAndView.addObject("bugdetails", bugDetails);
 
-    //trebuie 'id' generic sau ex: idBugs cum e campul din baza de date definit???
-
-    public ModelAndView bug(@RequestParam ("id") Integer id) {
-        ModelAndView modelAndView = new ModelAndView( "bug");
-        Bug bug = bugDAO.findById(id);
-        modelAndView.addObject("bug", bug);
         return modelAndView;
+
+        //nu vede modelul cand incerc sa-l accesez din Dashboard!
     }
 
-    @PostMapping("/addbug")
-    public ModelAndView addBug(@RequestParam("idBugs") Integer id) {
-        userSession.addNewBug(id);
-        return new ModelAndView("redirect:mybugs.html");
+    @GetMapping("/mybugs")
+    public ModelAndView myBugs(@RequestParam("id") Integer id) {
+        ModelAndView modelAndView = new ModelAndView("mybugs");
+
+        Bug myBugs = (Bug) bugDAO.findAll();
+        modelAndView.addObject("mybugs", myBugs);
+
+        return modelAndView;
     }
 }

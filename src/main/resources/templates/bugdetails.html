@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<html>
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
     <meta charset="utf-8">
-    <title>Dashboard</title>
+    <title>Add Bug</title>
 </head>
+
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand disabled" >Dashboard</a>
+        <a class="navbar-brand" href="#">Add a new bug</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -26,12 +27,11 @@
                     </a>
                     <!-- Must add the .animate and .slide-in classes to .dropdown-menu to work -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                    <!-- Cum adaug link-uri catre pagini??? -->
-                        <a class="dropdown-item" th:href="${myprojects}">My projects</a>
-                        <a class="dropdown-item" th:href="${mybugs}">My bugs</a>
+                        <a class="dropdown-item" href="myprojects.html">My projects</a>
+                        <a class="dropdown-item" href="#">My bugs</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" th:href="${addbug}">Add new bug</a>
-                        <a class="dropdown-item" th:href="${addproject}">Add new project</a>
+                        <a class="dropdown-item active" href="#">Add new bug</a>
+                        <a class="dropdown-item" href="#">Add new project</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
@@ -41,19 +41,26 @@
     </div>
 </nav>
 
-<div class="container">
-<div class="row">
-<div th:each="b : ${bug}" class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
-    <div class="card-body">
-        <h5 class="card-title" th:text="${b.bugName}"></h5>
-        <p class="card-subtitle mb-2 text-muted">Bug No.:
-        <h6 class="card-subtitle mb-2 text-muted" th:text="${b.bugNumber}"></h6></p>
-        <p class="card-text line-clamp" th:text="${b.bugDescription}"></p>
-        <a th:href="${b.url}" class="my-auto btn btn-outline-dark">Go to bug</a>
-    </div>
+
+
+<div class="container-fluid mt-5">
+    <form action="/bugdetails">
+        <div class="row justify-content-md-center">
+            <div class="col col-6">
+                <div class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${bugDetails.bugName}"></h5>
+                        <p class="card-subtitle mb-2 text-muted">Bug No.:
+                        <h6 class="card-subtitle mb-2 text-muted" th:text="${bugDetails.bugNumber}"></h6></p>
+                        <p class="card-text" th:text="${bugDetails.bugDescription}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-</div>
-</div>
+
+
 
 
 <footer class="footer mt-auto py-3" style="position: fixed; bottom: 0; text-align: justify; width: 100%;">
@@ -61,7 +68,7 @@
         <p class="text-center">
             <button type="button" class="btn btn-lg btn-outline-secondary" disabled> © 2020 Pandemic Software :-)
             </button>
-            <button hidden type="button" class="btn btn-lg btn-outline-success float-right">Home</button>
+            <button type="button" class="btn btn-lg btn-outline-success float-right">Home</button>
         </p>
     </div>
 </footer>
@@ -76,4 +83,5 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -21,7 +21,7 @@ public class ProjectDAO {
     }
 
     public void saveProject(String name, String description, int code) {
-        jdbcTemplate.update("insert into Projects (idProjects, Code, Name, AssignedTo) values (null, ?, ?, ?)",
+        jdbcTemplate.update("insert into Projects (idProject, Code, Name, AssignedTo) values (null, ?, ?, ?)",
                 name, description, code, 1, null, null);
     }
 }

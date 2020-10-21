@@ -2,8 +2,8 @@ package com.BugTracker.Bug.Database;
 
 public class User {
     private int idLogin;
-    private String Email;
-    private String Password;
+    private String email;
+    private String password;
 
     public int getId() {
         return idLogin;
@@ -14,18 +14,18 @@ public class User {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        this.Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        this.Password = password;
+        this.password = password;
     }
 }

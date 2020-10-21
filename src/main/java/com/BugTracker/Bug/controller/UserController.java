@@ -1,10 +1,6 @@
 package com.BugTracker.Bug.controller;
 
-import com.BugTracker.Bug.Database.InvalidPassword;
-import com.BugTracker.Bug.Database.Bug;
-import com.BugTracker.Bug.Database.BugDAO;
-import com.BugTracker.Bug.Database.User;
-import com.BugTracker.Bug.Database.UserService;
+import com.BugTracker.Bug.Database.*;
 import com.BugTracker.Bug.security.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +18,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    ProjectDAO projectDAO;
 
     @Autowired
     BugDAO bugDAO;
@@ -54,6 +53,7 @@ public class UserController {
         return new ModelAndView("register");
     }
 
+    //sa securizam un link ce trebuie protejat prin login (cu Post, nu Get!)
     @PostMapping("/login")
     public ModelAndView login(@RequestParam("email") String email,
                               @RequestParam("password") String password,
@@ -79,7 +79,6 @@ public class UserController {
         return modelAndView;
     }
 
-    //sa securizam un link ce trebuie protejat prin login (cu Post, nu Get!)
     @GetMapping("/dashboard")
     public ModelAndView dashboard() {
         List<Bug> bug = bugDAO.findAll();
@@ -88,7 +87,18 @@ public class UserController {
         }
         ModelAndView modelAndView = new ModelAndView("dashboard");
         modelAndView.addObject("bug", bug);
+
         return modelAndView;
+        //de afisat doar bug-urile per utilizator logat!
     }
 
+    @GetMapping("/myprojects")
+    public ModelAndView project(@RequestParam("id") Integer id) {
+        ModelAndView modelAndView = new ModelAndView("myprojects");
+        Project project = projectDAO.findById(id);
+
+        modelAndView.addObject("project", project);
+
+        return modelAndView;
+    }
 }

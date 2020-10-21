@@ -1,33 +1,33 @@
 package com.BugTracker.Bug.Database;
 
 public class Project {
-    private int id;
-    private String name;
-    private int code;
+    private int idProject;
+    private String projectName;
+    private int projectCode;
     private String assignedTo;
 
-    public int getId() {
-        return id;
+    public int getIdProject() {
+        return idProject;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdProject(int idProject) {
+        this.idProject = idProject;
     }
 
-    public String getName() {
-        return name;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
-    public int getCode() {
-        return code;
+    public int getProjectCode() {
+        return projectCode;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setProjectCode(int projectCode) {
+        this.projectCode = projectCode;
     }
 
     public String getAssignedTo() {
