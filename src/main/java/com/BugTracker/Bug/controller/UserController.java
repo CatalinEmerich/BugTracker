@@ -20,9 +20,6 @@ public class UserController {
     UserService userService;
 
     @Autowired
-    ProjectDAO projectDAO;
-
-    @Autowired
     BugDAO bugDAO;
 
     @Autowired
@@ -81,24 +78,13 @@ public class UserController {
 
     @GetMapping("/dashboard")
     public ModelAndView dashboard() {
-        List<Bug> bug = bugDAO.findAll();
-        for (Bug b : bug) {
-            b.setUrl("Bugs?id=" + b.getIdBugs());
+        List<Bug> bugs = bugDAO.findAll();
+        for (Bug b : bugs) {
+            b.setUrl("bugs?id=" + b.getIdBug());
         }
         ModelAndView modelAndView = new ModelAndView("dashboard");
-        modelAndView.addObject("bug", bug);
-
+        modelAndView.addObject("bugs", bugs);
         return modelAndView;
-        //de afisat doar bug-urile per utilizator logat!
-    }
-
-    @GetMapping("/myprojects")
-    public ModelAndView project(@RequestParam("id") Integer id) {
-        ModelAndView modelAndView = new ModelAndView("myprojects");
-        Project project = projectDAO.findById(id);
-
-        modelAndView.addObject("project", project);
-
-        return modelAndView;
+        //de imbunatatit aici: de afisat doar bug-urile per utilizator logat!
     }
 }

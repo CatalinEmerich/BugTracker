@@ -40,30 +40,30 @@
 </nav>
 
 
-
 <div class="container">
-    <form action="/mybugs" method="post">
     <div class="row">
-    <div th:each="x : ${id}" class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
-    <div class="card-body">
-        <h5 class="card-title" th:text="{bug.BugName}"></h5>
-        <h6 class="card-subtitle mb-2 text-muted" th:text="{bug.BugNumber}"></h6>
-        <p class="card-text" th:text="{bug.BugDescription}"></p>
-        <!-- Cum dau link-uri catre pagina BUG-ului si pagina Proiectului??? -->
-        <a href="#" class="card-link">Go to bug</a>
-        <a href="#" class="card-link">Go to project</a>
+        <div th:each="b : ${bugs}" class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${b.bugName}"></h5>
+                <p class="card-subtitle mb-2 text-muted">Bug No.:
+                <h6 class="card-subtitle mb-2 text-muted" th:text="${b.bugNumber}"></h6></p>
+                <p class="card-text line-clamp" th:text="${b.bugDescription}"></p>
+                <form action="/bugdetails">
+                    <input hidden name="id" th:value="${b.idBug}">
+                    <a th:href="${b.url}" class="my-auto btn btn-outline-dark">Go to bug</a>
+                </form>
+            </div>
+        </div>
     </div>
-    </div>
-    </form>
 </div>
-
 
 
 
 <footer class="footer mt-auto py-3" style="position: fixed; bottom: 0; text-align: justify; width: 100%;">
     <div class="container">
         <p class="text-center">
-            <button type="button" class="btn btn-lg btn-outline-secondary" disabled> © 2020 Pandemic Software :-) </button>
+            <button type="button" class="btn btn-lg btn-outline-secondary" disabled> © 2020 Pandemic Software :-)
+            </button>
             <button type="button" class="btn btn-lg btn-outline-success float-right">Home</button>
         </p>
     </div>

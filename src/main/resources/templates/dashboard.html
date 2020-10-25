@@ -27,8 +27,8 @@
                     <!-- Must add the .animate and .slide-in classes to .dropdown-menu to work -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
                     <!-- Cum adaug link-uri catre pagini??? -->
-                        <a class="dropdown-item" th:href="${myprojects}">My projects</a>
-                        <a class="dropdown-item" th:href="${mybugs}">My bugs</a>
+                        <a class="dropdown-item" th:href="@{myprojects}">My projects</a>
+                        <a class="dropdown-item" th:href="@{mybugs}">My bugs</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" th:href="${addbug}">Add new bug</a>
                         <a class="dropdown-item" th:href="${addproject}">Add new project</a>
@@ -42,14 +42,18 @@
 </nav>
 
 <div class="container">
+    <!--de limitat numarul de bug-uri afisate in dashboard-->
 <div class="row">
-<div th:each="b : ${bug}" class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+<div th:each="b : ${bugs}" class="card col-sm" style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
     <div class="card-body">
         <h5 class="card-title" th:text="${b.bugName}"></h5>
         <p class="card-subtitle mb-2 text-muted">Bug No.:
         <h6 class="card-subtitle mb-2 text-muted" th:text="${b.bugNumber}"></h6></p>
         <p class="card-text line-clamp" th:text="${b.bugDescription}"></p>
+        <form action="/bugdetails" method="get">
+        <input hidden name="id" th:value="${b.idBug}">
         <a th:href="${b.url}" class="my-auto btn btn-outline-dark">Go to bug</a>
+        </form>
     </div>
 </div>
 </div>

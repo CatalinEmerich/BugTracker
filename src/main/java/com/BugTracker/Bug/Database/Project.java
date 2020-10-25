@@ -5,6 +5,8 @@ public class Project {
     private String projectName;
     private int projectCode;
     private String assignedTo;
+    private String projectDescription;
+    private String url;
 
     public int getIdProject() {
         return idProject;
@@ -36,5 +38,21 @@ public class Project {
 
     public void setAssignedTo(String assignedTo) {
         this.assignedTo = assignedTo;
+    }
+
+    public String getProjectDescription() {
+        return projectDescription;
+    }
+
+    public void setProjectDescription(String projectDescription) {
+        this.projectDescription = projectDescription;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

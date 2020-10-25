@@ -8,11 +8,11 @@ public class Bug {
     private String bugDescription;
     private String url;
 
-    public int getIdBugs() {
+    public int getIdBug() {
         return idBug;
     }
 
-    public void setIdBugs(int idBug) {
+    public void setIdBug(int idBug) {
         this.idBug = idBug;
     }
 

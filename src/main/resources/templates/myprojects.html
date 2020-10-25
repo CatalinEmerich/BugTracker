@@ -43,22 +43,20 @@
 
 
 <div class="container">
-    <form action="/myprojects" method="get">
-        <div class="row">
-            <div th:each="project : ${project.id}" class="card col-sm"
-                style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${project.ProjectName}"></h5>
-                    <p hidden th:text="${project.id}"></p>
-                    <h6 class="card-subtitle mb-2 text-muted" th:text="${project.ProjectNumber}"></h6>
-                    <p class="card-text" th:text="${project.ProjectDescription}"></p>
-                    <!-- Cum dau link-uri catre pagina ADD BUG si pagina Proiectului??? -->
-                    <a href="#" class="card-link">Add bug</a>
-                    <a href="#" class="card-link">Project overview</a>
-                </div>
+    <div class="row">
+        <div th:each="p : ${myprojects}" class="card col-sm"
+            style="width: 18rem; margin: 2rem;background-color: rgb(168, 194, 211); box-shadow: 14px 14px 28px -14px rgba(0,0,0,0.43);">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${p.projectName}"></h5>
+                <p hidden th:text="${p.idProject}"></p>
+                <h6 class="card-subtitle mb-2 text-muted" th:text="${p.projectCode}"></h6>
+                <p class="card-text line-clamp" th:text="${p.projectDescription}"></p>
+                <!-- Cum dau link-uri catre pagina ADD BUG si pagina Proiectului??? -->
+                <a href="#" class="card-link">Add bug</a>
+                <a th:href="p.url" class="card-link">Project overview</a>
             </div>
         </div>
-    </form>
+    </div>
 </div>
 
 

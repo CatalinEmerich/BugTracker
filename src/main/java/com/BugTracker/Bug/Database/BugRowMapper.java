@@ -8,7 +8,7 @@ public class BugRowMapper implements RowMapper<Bug> {
     @Override
     public Bug mapRow (ResultSet resultSet, int i) throws SQLException {
         Bug bug = new Bug();
-        bug.setIdBugs(resultSet.getInt( "idBug"));
+        bug.setIdBug(resultSet.getInt( "idBug"));
         bug.setBugName(resultSet.getString("bugName"));
         bug.setBugNumber(resultSet.getInt("bugNumber"));
         bug.setBugDescription(resultSet.getString("bugDescription"));

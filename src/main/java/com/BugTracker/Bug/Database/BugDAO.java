@@ -18,6 +18,6 @@ public class BugDAO {
 
     //folosim metoda findById pentru a selecta un singur bug pe care sa-l afisam intr-un URL (cu template dinamic)
     public Bug findById (Integer id) {
-        return jdbcTemplate.query("select * from Bugs where idBugs = " + id, new BugRowMapper()).get(0);
+        return jdbcTemplate.query("select * from Bugs where idBug = " + id, new BugRowMapper()).get(0);
     }
 }

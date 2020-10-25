@@ -4,9 +4,10 @@ import com.BugTracker.Bug.Database.Bug;
 import com.BugTracker.Bug.Database.BugDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class BugController {
@@ -15,24 +16,30 @@ public class BugController {
     BugDAO bugDAO;
 
     @GetMapping("/bugdetails")
+    @RequestMapping(name = "/bugdetails", method = RequestMethod.GET)
     public ModelAndView bugDetails(@RequestParam("id") Integer id) {
         ModelAndView modelAndView = new ModelAndView("bugdetails");
 
         Bug bugDetails = bugDAO.findById(id);
         modelAndView.addObject("bugdetails", bugDetails);
-
         return modelAndView;
-
-        //nu vede modelul cand incerc sa-l accesez din Dashboard!
     }
 
     @GetMapping("/mybugs")
-    public ModelAndView myBugs(@RequestParam("id") Integer id) {
+    public ModelAndView myBugs() {
+        List<Bug> bugs = bugDAO.findAll();
+        for (Bug b : bugs) {
+            b.setUrl("bugs?id=" + b.getIdBug());
+        }
         ModelAndView modelAndView = new ModelAndView("mybugs");
+        modelAndView.addObject("bugs", bugs);
+        return modelAndView;
+    }
 
-        Bug myBugs = (Bug) bugDAO.findAll();
-        modelAndView.addObject("mybugs", myBugs);
-
+    @GetMapping("/home")
+    public ModelAndView homeButton(){
+        ModelAndView modelAndView = new ModelAndView("homebutton");
+        modelAndView.addObject("homebutton", homeButton());
         return modelAndView;
     }
 }
