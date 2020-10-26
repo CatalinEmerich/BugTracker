@@ -4,9 +4,7 @@ import com.BugTracker.Bug.Database.*;
 import com.BugTracker.Bug.security.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -78,6 +76,7 @@ public class UserController {
 
     @GetMapping("/dashboard")
     public ModelAndView dashboard() {
+
         List<Bug> bugs = bugDAO.findAll();
         for (Bug b : bugs) {
             b.setUrl("bugs?id=" + b.getIdBug());

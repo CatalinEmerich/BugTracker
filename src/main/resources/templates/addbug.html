@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="/src/main/resources/static/main.css">
+    <link rel="stylesheet" href="main.css">
     <meta charset="utf-8">
     <title>Add Bug</title>
 </head>
@@ -12,7 +12,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="#">Add a new bug</a>
+        <a class="navbar-brand disabled">Add a new bug</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,11 +27,11 @@
                     </a>
                     <!-- Must add the .animate and .slide-in classes to .dropdown-menu to work -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="myprojects.html">My projects</a>
-                        <a class="dropdown-item" href="#">My bugs</a>
+                        <a class="dropdown-item" th:href="@{myprojects}">My projects</a>
+                        <a class="dropdown-item" th:href="@{mybugs}">My bugs</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item active" href="#">Add new bug</a>
-                        <a class="dropdown-item" href="#">Add new project</a>
+                        <a class="dropdown-item active" th:href="@{addbug}">Add new bug</a>
+                        <a class="dropdown-item" th:href="@{addproject}">Add new project</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
@@ -47,10 +47,10 @@
     <form action="/addbug" method="post">
         <div class="row justify-content-md-center">
         <div class="col col-6">
-        <form>
+        <form action="addbug">
             <div class="form-group">
                 <label for="formGroupExampleInput2">Employee Name</label>
-                <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Please fill in your name">
+                <input type="text" class="form-control" id="formGroupExampleInput0" placeholder="Please fill in your name">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Email address</label>
@@ -78,6 +78,9 @@
                 <input type="file" class="custom-file-input" id="customFile">
                 <label class="custom-file-label" for="customFile">Attach files (optional)</label>
             </div>
+            <div class="form-group" style="margin-top: 3rem;">
+                <button type="submit" class="btn btn-lg btn-outline-success btn-block btn-login text-uppercase font-weight-bold mb-2">Submit bug</button>
+            </div>
         </form>
         </div>
         </div>
@@ -92,11 +95,10 @@
         <p class="text-center">
             <button type="button" class="btn btn-lg btn-outline-secondary" disabled> © 2020 Pandemic Software :-)
             </button>
-            <button type="button" class="btn btn-lg btn-outline-success float-right">Home</button>
+            <a type="button" class="btn btn-lg btn-outline-success float-right" th:href="@{dashboard}">Home</a>
         </p>
     </div>
 </footer>
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

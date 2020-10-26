@@ -26,14 +26,13 @@
                     </a>
                     <!-- Must add the .animate and .slide-in classes to .dropdown-menu to work -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                    <!-- Cum adaug link-uri catre pagini??? -->
                         <a class="dropdown-item" th:href="@{myprojects}">My projects</a>
                         <a class="dropdown-item" th:href="@{mybugs}">My bugs</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" th:href="${addbug}">Add new bug</a>
-                        <a class="dropdown-item" th:href="${addproject}">Add new project</a>
+                        <a class="dropdown-item" th:href="@{addbug}">Add new bug</a>
+                        <a class="dropdown-item" th:href="@{addproject}">Add new project</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Log out</a>
+                        <a class="dropdown-item">Log out</a>
                     </div>
                 </li>
             </ul>

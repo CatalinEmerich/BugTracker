@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="#">My Projects</a>
+        <a class="navbar-brand disabled">My Projects</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -27,11 +27,11 @@
                     </a>
                     <!-- Must add the .animate and .slide-in classes to .dropdown-menu to work -->
                     <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item active" href="#">My projects</a>
-                        <a class="dropdown-item" href="mybugs.html">My bugs</a>
+                        <a class="dropdown-item active" th:href="@{myprojects}">My projects</a>
+                        <a class="dropdown-item" th:href="@{mybugs}">My bugs</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Add new bug</a>
-                        <a class="dropdown-item" href="#">Add new project</a>
+                        <a class="dropdown-item" th:href="@{addbug}">Add new bug</a>
+                        <a class="dropdown-item" th:href="@{addproject}">Add new project</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Log out</a>
                     </div>
@@ -66,13 +66,10 @@
         <p class="text-center">
             <button type="button" class="btn btn-lg btn-outline-secondary" disabled> © 2020 Pandemic Software :-)
             </button>
-            <button type="button" class="btn btn-lg btn-outline-success float-right">Home</button>
+            <a type="button" class="btn btn-lg btn-outline-success float-right" th:href="@{dashboard}">Home</a>
         </p>
     </div>
 </footer>
-
-
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>

@@ -2,6 +2,7 @@ package com.BugTracker.Bug.controller;
 
 import com.BugTracker.Bug.Database.Bug;
 import com.BugTracker.Bug.Database.BugDAO;
+import com.BugTracker.Bug.security.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,9 @@ public class BugController {
 
     @Autowired
     BugDAO bugDAO;
+
+    @Autowired
+    UserSession userSession;
 
     @GetMapping("/bugdetails")
     @RequestMapping(name = "/bugdetails", method = RequestMethod.GET)
@@ -36,10 +40,8 @@ public class BugController {
         return modelAndView;
     }
 
-    @GetMapping("/home")
-    public ModelAndView homeButton(){
-        ModelAndView modelAndView = new ModelAndView("homebutton");
-        modelAndView.addObject("homebutton", homeButton());
-        return modelAndView;
+    @GetMapping("/addbug")
+    public ModelAndView addBug() {
+        return new ModelAndView("addbug");
     }
 }
